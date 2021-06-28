@@ -9,10 +9,12 @@ def today(update: Update, context: CallbackContext):
     result = db_connect.users_products.select_today(update.effective_user.id)
     reply_str = ''
     for row in result:
+        # todo format row
         reply_str += '{}\n'.format(row)
 
     update.message.reply_text(reply_str or "Nothing was eaten today!")
 
 
 def add_handler(updater: Updater):
+    """/today - Eaten today"""
     updater.dispatcher.add_handler(CommandHandler('today', today))

@@ -16,4 +16,5 @@ def print_products(update: Update, context: CallbackContext):
 
 
 def add_handler(updater: Updater):
+    """/products - List of all product"""
     updater.dispatcher.add_handler(CommandHandler('products', print_products))

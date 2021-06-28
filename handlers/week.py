@@ -14,4 +14,5 @@ def week(update: Update, context: CallbackContext):
 
 
 def add_handler(updater: Updater):
+    """/week - Get week overview"""
     updater.dispatcher.add_handler(CommandHandler('week', week))

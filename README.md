@@ -17,6 +17,6 @@ Create .env.db and use format:
 
 Bot support only MySql database
 
-In [BotFather](https://t.me/botfather) add command description from [bot_description.txt](./bot_description.txt)
+For installing dependencies use [requirements.txt](requirements.txt) or [Pipfile](Pipfile)
 
-For installing dependencies use [reqirements.txt](reqirements.txt) or [Pipfile](Pipfile)
+In [BotFather](https://t.me/botfather) add output of  **/help** command in **Edits Commands** menu without begin /

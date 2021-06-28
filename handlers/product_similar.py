@@ -7,7 +7,7 @@ PRODUCT_LIKE_1 = 0
 
 
 def like_product_0(update: Update, _: CallbackContext):
-    update.message.reply_text('Enter start part of product name')
+    update.message.reply_text('Enter start part of product name:')
 
     return PRODUCT_LIKE_1
 
@@ -18,6 +18,7 @@ def like_product_1(update: Update, context: CallbackContext):
 
 
 def add_handler(updater: Updater):
+    """/products_similar - List similar products"""
     updater.dispatcher.add_handler(ConversationHandler(
         entry_points=[CommandHandler('products_similar', like_product_0)],
         states={

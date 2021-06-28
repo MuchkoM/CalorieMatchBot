@@ -45,6 +45,8 @@ def eat_2(update: Update, context: CallbackContext):
 
 
 def add_handler(updater: Updater):
+    """/eat - Eat product"""
+    # todo fix /cancel
     updater.dispatcher.add_handler(ConversationHandler(
         entry_points=[CommandHandler('eat', eat_0)],
         states={

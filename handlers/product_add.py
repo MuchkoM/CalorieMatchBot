@@ -29,6 +29,7 @@ def add_1(update: Update, context: CallbackContext):
 
 
 def add_handler(updater: Updater):
+    """/product_add - Add product to list known products"""
     updater.dispatcher.add_handler(ConversationHandler(
         entry_points=[CommandHandler('product_add', add_0)],
         states={

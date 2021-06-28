@@ -19,7 +19,8 @@ def start_0(update: Update, context: CallbackContext):
                                   'Your eat kcal per day: {kcal}'.format(**db_user))
         return ConversationHandler.END
     else:
-        update.message.reply_text("Enter your physical parameters:\n"
+        update.message.reply_text("Hello new user!\n"
+                                  "Enter your physical parameters:\n"
                                   "age/sex('male' or 'female')/height/weight/activity(0-5)")
 
         return START_0
@@ -50,6 +51,7 @@ def start_1(update: Update, context: CallbackContext):
 
 
 def add_handler(updater: Updater):
+    """/start - Start bot"""
     updater.dispatcher.add_handler(ConversationHandler(
         entry_points=[CommandHandler('start', start_0)],
         states={
