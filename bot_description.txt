@@ -1,0 +1,7 @@
+start - Start bot
+cancel - Cancel
+products - List of all product
+products_similar - List similar prduct
+eat - Eat
+today - Eaten today
+week - Get week overview
