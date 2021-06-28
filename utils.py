@@ -2,7 +2,7 @@ import os
 
 from dotenv import dotenv_values
 from telegram import Update
-from telegram.ext import CallbackContext, ConversationHandler
+from telegram.ext import CallbackContext
 
 
 def chunks(itr, mapper, max_n=64):
@@ -52,12 +52,6 @@ def send_like_product(update: Update, context: CallbackContext, name: str):
         update.message.reply_text(res_str)
     else:
         update.message.reply_text('Not found')
-
-
-def cancel(update: Update, context: CallbackContext):
-    update.message.reply_text('Cancel')
-    context.user_data.clear()
-    return ConversationHandler.END
 
 
 def get_db_conf():

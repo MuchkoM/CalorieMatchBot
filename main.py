@@ -11,7 +11,7 @@ if __name__ == '__main__':
     logging.basicConfig(level=bot_conf.get('LEVEL'))
     update = Updater(token=bot_conf.get('TOKEN'))
 
-    add_handlers(update, additional_help_str='/cancel - Cancel current conversation')
+    add_handlers(update)
 
     with DBConnector(**get_db_conf()) as db_connect:
         update.dispatcher.bot_data['db_connect'] = db_connect

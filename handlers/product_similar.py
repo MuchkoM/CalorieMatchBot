@@ -1,7 +1,7 @@
 from telegram import Update
 from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Filters, CallbackContext, Updater
 
-from utils import send_like_product, cancel
+from utils import send_like_product
 
 PRODUCT_LIKE_1 = 0
 
@@ -22,7 +22,7 @@ def add_handler(updater: Updater):
     updater.dispatcher.add_handler(ConversationHandler(
         entry_points=[CommandHandler('products_similar', like_product_0)],
         states={
-            PRODUCT_LIKE_1: [CommandHandler('cancel', cancel), MessageHandler(Filters.text, like_product_1)]
+            PRODUCT_LIKE_1: [MessageHandler(Filters.text & ~Filters.command, like_product_1)]
         },
         fallbacks=[],
     ))

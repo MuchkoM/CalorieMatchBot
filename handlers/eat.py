@@ -2,7 +2,7 @@ from telegram import Update
 from telegram.ext import CallbackContext, ConversationHandler, CommandHandler, MessageHandler, Filters, Updater
 
 from db import DBConnector
-from utils import send_like_product, cancel
+from utils import send_like_product
 
 EAT_1, EAT_2 = range(2)
 
@@ -46,12 +46,11 @@ def eat_2(update: Update, context: CallbackContext):
 
 def add_handler(updater: Updater):
     """/eat - Eat product"""
-    # todo fix /cancel
     updater.dispatcher.add_handler(ConversationHandler(
         entry_points=[CommandHandler('eat', eat_0)],
         states={
-            EAT_1: [CommandHandler('cancel', cancel), MessageHandler(Filters.text, eat_1)],
-            EAT_2: [CommandHandler('cancel', cancel), MessageHandler(Filters.text, eat_2)],
+            EAT_1: [MessageHandler(Filters.text & ~Filters.command, eat_1)],
+            EAT_2: [MessageHandler(Filters.text & ~Filters.command, eat_2)],
         },
         fallbacks=[],
     ))

@@ -2,7 +2,6 @@ from telegram import Update
 from telegram.ext import Updater, CallbackContext, ConversationHandler, CommandHandler, MessageHandler, Filters
 
 from db import DBConnector
-from utils import cancel
 
 import re
 
@@ -33,7 +32,7 @@ def add_handler(updater: Updater):
     updater.dispatcher.add_handler(ConversationHandler(
         entry_points=[CommandHandler('product_add', add_0)],
         states={
-            ADD_1: [CommandHandler('cancel', cancel), MessageHandler(Filters.text, add_1)]
+            ADD_1: [MessageHandler(Filters.text & ~Filters.command, add_1)]
         },
         fallbacks=[]
     ))
